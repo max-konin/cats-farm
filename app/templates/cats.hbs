@@ -7,18 +7,13 @@
         <th>Name</th>
         <th>Weight</th>
         <th>Avatar</th>
+        <th>State</th>
         <th>Fluffiness</th>
       </tr>
     </thead>
     <tbody>
       {{#each model as |cat|}}
-        <tr data-test-cat>
-          <td>{{cat.id}}</td>
-          <td>{{cat.name}}</td>
-          <td>{{cat.weight}}</td>
-          <td><img src={{cat.avatarUrl}} class="ui mini rounded image"/></td>
-          <td>{{cat.fluffiness}}</td>
-        </tr>
+        {{cat-row cat=cat data-test-cat=true}}
       {{/each}}
     </tbody>
   </table>

@@ -6,5 +6,6 @@ export default DS.Model.extend({
   width: DS.attr('number'),
   name: DS.attr('string'),
   fluffiness: DS.attr('number'),
-  avatarUrl: DS.attr('string')
+  avatarUrl: DS.attr('string'),
+  state: DS.attr('string')
 });
