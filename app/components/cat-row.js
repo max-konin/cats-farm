@@ -10,7 +10,7 @@ export default Component.extend({
   error:   equal('cat.state', 'evil'),
   warning: equal('cat.state', 'hungry'),
 
-  labelClass: computed(function () {
+  labelClass: computed('cat.state', function () {
     if (this.sleep)   return 'green';
     if (this.error)   return 'red';
     if (this.warning) return 'yellow';

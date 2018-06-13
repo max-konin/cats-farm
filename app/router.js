@@ -7,7 +7,9 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('cats');
+  this.route('cats', function() {
+    this.route('cat', { path: '/:cat_id' });
+  });
 });
 
 export default Router;

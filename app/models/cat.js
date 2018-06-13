@@ -7,5 +7,7 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   fluffiness: DS.attr('number'),
   avatarUrl: DS.attr('string'),
-  state: DS.attr('string')
+  state: DS.attr('string'),
+
+  slave: DS.belongsTo('human')
 });
