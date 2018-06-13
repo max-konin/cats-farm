@@ -23,7 +23,7 @@ export default function() {
 
     http://www.ember-cli-mirage.com/docs/v0.3.x/shorthands/
   */
-
+  this.passthrough('/write-coverage');
   this.resource('cats');
   this.resource('human');
 }

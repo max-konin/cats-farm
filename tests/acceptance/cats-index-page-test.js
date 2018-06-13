@@ -39,4 +39,24 @@ describe('Acceptance | cats index page', function () {
       expect(find('tr .yellow')).to.exist;
     });
   });
+  describe('aggregations', function () {
+    beforeEach(async function () {
+      server.create('cat', { weight: 1, height: 10, width: 10, fluffiness: 50 });
+      server.create('cat', { weight: 25, height: 100, width: 100, fluffiness: 100 });
+      server.create('cat', { weight: 25, height: 100, width: 100, fluffiness: 100 });
+      await visit('/cats');
+    });
+    it('renders avg cuteCoef', function () {
+      expect(find('[data-test-avg-cute-coef]')).to.have.text(((100 + 100 + 0.5) / 3).toString());
+    });
+    it('renders max cuteCoef', function () {
+      expect(find('[data-test-max-cute-coef]')).to.have.text('100');
+    });
+    it('renders min cuteCoef', function () {
+      expect(find('[data-test-min-cute-coef]')).to.have.text('0.5');
+    });
+    it('renders total cuteCoef', function () {
+      expect(find('[data-test-total-cute-coef]')).to.have.text('200.5');
+    });
+  });
 });

@@ -11,6 +11,7 @@
             <th>Avatar</th>
             <th>State</th>
             <th>Fluffiness</th>
+            <th>Cute Coef</th>
             <th></th>
           </tr>
         </thead>
@@ -19,9 +20,35 @@
             {{cat-row cat=cat data-test-cat=true}}
           {{/each}}
         </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="5"></th>
+            <th>min</th>
+            <th data-test-min-cute-coef>{{minCuteCoef}}</th>
+            <th></th>
+          </tr>
+          <tr>
+            <th colspan="5"></th>
+            <th >max</th>
+            <th data-test-max-cute-coef>{{maxCuteCoef}}</th>
+            <th></th>
+          </tr>
+          <tr>
+            <th colspan="5"></th>
+            <th>total</th>
+            <th data-test-total-cute-coef>{{totalCuteCoef}}</th>
+            <th></th>
+          </tr>
+          <tr>
+            <th colspan="5"></th>
+            <th>avg</th>
+            <th data-test-avg-cute-coef>{{avgCuteCoef}}</th>
+            <th></th>
+          </tr>
+        </tfoot>
       </table>
     </div>
-    <div class="sex wide culomn">
+    <div class="six wide column">
       {{outlet}}
     </div>
   </div>
