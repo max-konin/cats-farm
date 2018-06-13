@@ -2,7 +2,7 @@ import { describe, it, beforeEach, afterEach, context } from 'mocha';
 import { expect } from 'chai';
 import startApp from 'cats-farm/tests/helpers/start-app';
 import destroyApp from 'cats-farm/tests/helpers/destroy-app';
-import { visit, find, click } from 'ember-native-dom-helpers';
+import { visit, find, click, findAll } from 'ember-native-dom-helpers';
 
 describe('Acceptance | cat page', function() {
   let application;
@@ -26,7 +26,7 @@ describe('Acceptance | cat page', function() {
       expect(find('[data-test-avatar]')).to.exist;
     });
     it('renders info about slave', function () {
-      expect(find('[data-test-slave-name]')).to.have.trimmed.text(slave.name);
+      expect(findAll('[data-test-slave]')).to.have.lengthOf(3);
     });
   });
   describe('actions', function () {

@@ -1,26 +1,19 @@
+<h2>{{model.name}}</h2>
 <div class="ui segment">
-  <h2>
-    {{model.name}}
-  </h2>
-
   <div>
     <img src={{model.avatarUrl}} data-test-avatar/>
-  </div>
-
-  <div>
-    <span>
-    Slave:
-    </span>
-    <span data-test-slave-name>
-      {{#if model.slave.isFulfilled}}
-        {{model.slave.name}}
-      {{else}}
-        Loading...
-      {{/if}}
-    </span>
   </div>
 
   <div data-test-switch-state>
     {{cat-state-switcher cat=model onChange=(action "changeState")}}
   </div>
+</div>
+
+<div class="ui segment">
+  <h3>Slaves</h3>
+  <ul>
+    {{#each model.slaves as |slave|}}
+      <li data-test-slave>{{slave.name}}</li>
+    {{/each}}
+  </ul>
 </div>

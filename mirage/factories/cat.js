@@ -1,4 +1,4 @@
-import { Factory, faker, association } from 'ember-cli-mirage';
+import { Factory, faker } from 'ember-cli-mirage';
 
 export default Factory.extend({
   weight() { return faker.random.number(); },
@@ -8,5 +8,8 @@ export default Factory.extend({
   fluffiness() { return faker.random.number(); },
   avatarUrl() { return faker.image.cats(100, 100, true); },
   state: faker.list.random('hungry', 'evil', 'sleep'),
-  slave: association()
+
+  afterCreate(cat, server) {
+    server.createList('human', 3, { cat });
+  }
 });

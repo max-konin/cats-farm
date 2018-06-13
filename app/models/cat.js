@@ -9,5 +9,5 @@ export default DS.Model.extend({
   avatarUrl: DS.attr('string'),
   state: DS.attr('string'),
 
-  slave: DS.belongsTo('human')
+  slaves: DS.hasMany('human')
 });
